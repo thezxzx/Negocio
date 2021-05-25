@@ -32,7 +32,7 @@ export class ProductsService {
   }
 
 
-  async insertarDatos( data: Products ): Promise<void> {
+  async insertProduct( data: Products ): Promise<void> {
     try {
       console.log( data );
       await this.af.collection('Productos').add( data );
@@ -41,7 +41,7 @@ export class ProductsService {
     }
   }
 
-  obtenerDatos() {
+  getAllProducts() {
 
     try {   
       return this.allproducts;

@@ -1,4 +1,6 @@
+import { ProductsService } from './../../services/products.service';
 import { Component, OnInit } from '@angular/core';
+import { Products } from '../../interfaces/products-interface';
 
 @Component({
   selector: 'app-show-products',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShowProductsPage implements OnInit {
 
-  constructor() { }
+
+  allProducts: Products[] = [];
+
+  constructor(
+    private productsService: ProductsService
+  ) {
+    this.productsService.getAllProducts().subscribe( products => {
+      this.allProducts = products;
+    });
+  }
 
   ngOnInit() {
+  }
+
+  cardClick( product: Products ) {
+
+    console.log( product );
+
   }
 
 }

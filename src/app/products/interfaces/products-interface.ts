@@ -5,6 +5,7 @@ export interface Products {
     unitPrice: number;
     cost: number;
     stock: number;
+    description: string;
     imageURL: string;
     // id?: string;
     // codigo: string;

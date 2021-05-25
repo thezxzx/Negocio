@@ -9,8 +9,47 @@
 
 <ion-content>
 
+  <!-- TODO: hacer que funcione la barra de busqueda -->
   <ion-searchbar [debounce]="250"></ion-searchbar>
 
+  <!-- Card de los productos -->
+  <ion-card *ngFor="let product of allProducts" (click)="cardClick( product )">
+    
+    <!-- Imagen de los productos -->
+    <img [src]="product.imageURL" [alt]="product.nameProduct"> 
+    
+    <!-- Encabezado de los productos -->
+    <ion-card-header>
+      <!-- Titulo del producto -->
+      <ion-card-title class="ion-text-center">{{ product.nameProduct | titlecase}}</ion-card-title>
+      
+    </ion-card-header>
+
+    <!-- Contenido del producto ( descripción ) -->
+    <ion-card-content>
+      {{ product.description }}
+    </ion-card-content>
+
+    <!-- Contenedor del precio y la cantidad -->
+    <div class="price-stock">
+      
+      <!-- Contenedor del precio -->
+      <div class="price">
+        <ion-label class="ion-margin-end">Precio:</ion-label>
+        <ion-badge color="dark" class="price">
+          {{ product.unitPrice }}
+        </ion-badge>
+      </div> <!-- Fin del contenedor del precio -->
+
+      <!-- Contenedor de la cantidad -->
+      <div class="stock">
+        <ion-label class="ion-margin-end">Cantidad:</ion-label>
+        <ion-badge color="dark" class="stock">
+          {{ product.stock }}
+        </ion-badge>
+      </div> <!-- Fin del contenedor de cantidad -->
+    </div> <!-- Fin del contenedor precio y cantidad -->
+  </ion-card>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button routerLink="/add-products">

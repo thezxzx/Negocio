@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CameraResultType, CameraSource, Plugins } from '@capacitor/core';
+import { ToastController } from '@ionic/angular';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { Observable } from 'rxjs';
 import { Products } from '../../interfaces/products-interface';
@@ -21,12 +22,13 @@ export class AddProductsPage implements OnInit {
   urlImage: Observable<string>;
 
   percentage: number = 0;
-  productos: Products[] = [];
+  //productos: Products[] = [];
 
   constructor(
     private formBuilder: FormBuilder,
     private afs: AngularFireStorage,
-    private productsService: ProductsService ) { }
+    private productsService: ProductsService,
+    private toastCtrl: ToastController ) { }
 
   ngOnInit() {
   }
@@ -38,16 +40,23 @@ export class AddProductsPage implements OnInit {
     unitPrice: [ 0, [ Validators.required, Validators.min( 1 ), Validators.max( 1000 ) ] ],
     cost: [ 0, [ Validators.required, Validators.min( 1 ) ] ],
     stock: [ 0, [ Validators.required, Validators.min( 1 ), Validators.max( 500 ) ] ],
+    description: [ '', [ Validators.required, Validators.minLength( 30 ) ] ]
     // category: [ '', [ Validators.required ] ],
     // provider: [ '', [ Validators.required ] ]
     
   });
 
 
+  // Añadir productos a la base de datos
   onAddProduct() {
 
+    // Permite saber si el formulario es válido
     if ( this.form.invalid ) {
       this.form.markAllAsTouched();
+
+      // Toast para llenar todos los campos
+      this.presentToast( 'Es necesario llenar todos los campos' );
+
       return;
     }
 
@@ -57,8 +66,11 @@ export class AddProductsPage implements OnInit {
       imageURL
     }
 
+    this.productsService.insertProduct( product );
 
-    this.productsService.insertarDatos( product );
+    // Toast para 
+    this.presentToast( 'Producto agregado correctamente' );
+
   }
 
 
@@ -117,5 +129,14 @@ export class AddProductsPage implements OnInit {
           tap( snap => this.uploadPercent = snap.bytesTransferred/snap.totalBytes),
           finalize( () => ref.getDownloadURL().subscribe( url => { this.imageUrl = url}))
         ).subscribe();
+  }
+
+  // Presentar mensaje
+  async presentToast( message: string ) {
+    const toast = await this.toastCtrl.create({
+      message,
+      duration: 2000
+    });
+    toast.present();
   }
 }
