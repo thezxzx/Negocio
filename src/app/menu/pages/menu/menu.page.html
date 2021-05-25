@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>menu</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="center">
+    <ion-grid>
+      <ion-row class="ion-text-center">
+        <ion-col size="6">
+          <ion-item button>
+            <ion-label>
+              <h2>Ventas</h2>
+            </ion-label>
+            <ion-icon name="cash-outline" slot="end"></ion-icon>
+          </ion-item>
+        </ion-col>
+
+        <ion-col size="6">
+          <ion-item button routerLink="/show-products">
+            <ion-label>
+              <h2>Productos</h2>
+            </ion-label>
+            <ion-icon name="cart-outline" slot="end"></ion-icon>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+  
+      <ion-row class="ion-text-center">
+        <ion-col size="6">
+          <ion-item button routerLink="/providers">
+            <ion-label>
+              <h2>Proveedores</h2>
+            </ion-label>
+            <ion-icon name="people-outline" slot="end"></ion-icon>
+          </ion-item>
+        </ion-col>
+
+        <ion-col size="6">
+          <ion-item button>
+            <ion-label>
+              <h2>Usuarios</h2>
+            </ion-label>
+            <ion-icon name="id-card-outline" slot="end"></ion-icon>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+  
+      <ion-row>
+        <ion-col size="12">
+          <ion-item button>
+            <ion-label class="ion-text-center">
+              <span>Configuración</span>
+            </ion-label>
+            <ion-icon name="settings-outline"></ion-icon>
+          </ion-item>
+        </ion-col>
+
+      </ion-row>
+    </ion-grid>
+  </div>
+
+</ion-content>

@@ -1,0 +1,16 @@
+.imagen-contenedor {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.imagen {
+    width: 50%;
+    height: 50%;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+}

@@ -1,0 +1,35 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'install', '-g', 'npm@latest' ]
+2 info using npm@3.10.10
+3 info using node@v14.17.0
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readGlobalPackageData
+7 silly fetchPackageMetaData npm@latest
+8 silly fetchNamedPackageData npm
+9 silly mapToRegistry name npm
+10 silly mapToRegistry using default registry
+11 silly mapToRegistry registry https://registry.npmjs.org/
+12 silly mapToRegistry data Result {
+12 silly mapToRegistry   raw: 'npm',
+12 silly mapToRegistry   scope: null,
+12 silly mapToRegistry   escapedName: 'npm',
+12 silly mapToRegistry   name: 'npm',
+12 silly mapToRegistry   rawSpec: '',
+12 silly mapToRegistry   spec: 'latest',
+12 silly mapToRegistry   type: 'tag'
+12 silly mapToRegistry }
+13 silly mapToRegistry uri https://registry.npmjs.org/npm
+14 verbose get https://registry.npmjs.org/npm not expired, no request
+15 verbose stack TypeError: cb.apply is not a function
+15 verbose stack     at /usr/lib/node_modules/npm/node_modules/graceful-fs/polyfills.js:267:18
+15 verbose stack     at FSReqCallback.oncomplete (fs.js:193:5)
+16 verbose cwd /home/thezx/Escritorio/Ionic/negocio
+17 error Linux 5.4.0-73-generic
+18 error argv "/usr/bin/node" "/usr/bin/npm" "install" "-g" "npm@latest"
+19 error node v14.17.0
+20 error npm  v3.10.10
+21 error cb.apply is not a function
+22 error If you need help, you may report this error at:
+22 error     <https://github.com/npm/npm/issues>
+23 verbose exit [ 1, true ]

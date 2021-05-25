@@ -1,0 +1,18 @@
+{
+  "appId": "com.zx.negocio",
+  "appName": "negocioApp",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "linuxAndroidStudioPath": "/snap/bin/android-studio",
+  "cordova": {},
+  "server": {
+    "url": "http://192.168.0.13:8100",
+    "cleartext": true
+  }
+}

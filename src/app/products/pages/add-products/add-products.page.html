@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Añadir productos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="onAddProduct()" [formGroup]="form" >
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input type="text" formControlName="nameProduct"></ion-input>
+    </ion-item> <!-- Campo nombre -->
+
+    <ion-item>
+      <ion-label position="floating">Código</ion-label>
+      <ion-input class="no-arrows" type="number" formControlName="barCode"></ion-input>
+    </ion-item> <!-- Campo código -->
+
+    <ion-item>
+      <ion-label position="floating">Precio unitario</ion-label>
+      <ion-input type="number" formControlName="unitPrice"></ion-input>
+    </ion-item> <!--Campo precio -->
+
+    <ion-item>
+      <ion-label position="floating">Costo</ion-label>
+      <ion-input type="number" formControlName="cost"></ion-input>
+    </ion-item> <!-- Campo Costo-->
+
+    <ion-item>
+      <ion-label position="floating">Cantidad</ion-label>
+      <ion-input type="number" formControlName="stock"></ion-input>
+    </ion-item> <!-- Campo Cantidad -->
+
+    <!-- Campos de imagen -->
+    <div class="ion-margin-top">
+      <ion-button expand="block" (click)="getImage()">Sacar foto</ion-button>
+    </div>
+    
+    <ion-item class="no-border">
+      <ion-progress-bar type="determinate" [value]="uploadPercent" color="primary"></ion-progress-bar>
+    </ion-item> <!-- Campo de imagen -->
+
+    <!-- Campo proveedor -->
+    <!-- <ion-item>
+      <ion-label>Proveedor</ion-label>
+    </ion-item>  -->
+
+    <ion-button class="ion-margin-top" expand="block" (click)="onAddProduct()">Guardar</ion-button>
+  </form>
+</ion-content>
+
+<!-- 
+    id?: string;
+    codigo: string;
+    nombre: string;
+    precio: number;
+    costo: number;
+    cantidad: number;
+    imagenUrl: string;
+    proveedor: string;
+ -->

@@ -1,0 +1,42 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title class="ion-text-center">login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class>
+
+  <div class="imagen-contenedor">
+    <div class="imagen">
+      <img src="../../../../assets/avatar.svg" alt="Registro">
+    </div> <!-- end div.imagen -->
+  </div> <!-- end div.imagen-contenedor-->
+
+  <form (ngSubmit)="onLogin()" [formGroup]="miFormulario" class="ion-margin-top">
+
+    <ion-item>
+      <ion-label position="floating">Correo:</ion-label>
+      <ion-input type="text"
+                 formControlName="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Contraseña:</ion-label>
+      <ion-input type="password"
+                 formControlName="password"></ion-input>
+    </ion-item>
+
+    <!-- <input type="email"
+          formControlName="email"
+          placeholder="email"> -->
+    <ion-button (click)="onLogin()"
+                expand="block"
+                fill="outline"
+                shape="round"
+                class="ion-margin-top"
+                [disabled]="true">
+      Iniciar sesión
+    </ion-button>
+  </form> <!-- end form -->
+
+</ion-content>

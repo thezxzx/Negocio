@@ -1,0 +1,14 @@
+{
+  "appId": "com.zx.negocio",
+  "appName": "negocioApp",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "linuxAndroidStudioPath": "/snap/bin/android-studio",
+  "cordova": {}
+}
