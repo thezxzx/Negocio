@@ -24,13 +24,38 @@ export class AddProductsPage implements OnInit {
   percentage: number = 0;
   //productos: Products[] = [];
 
+  // Producto a editar
+  editProduct: Products;
+  isEdit: boolean = false;
+  
+
   constructor(
     private formBuilder: FormBuilder,
     private afs: AngularFireStorage,
     private productsService: ProductsService,
-    private toastCtrl: ToastController ) { }
+    private toastCtrl: ToastController ) {
+
+    }
 
   ngOnInit() {
+    // Asignación del producto a la variable
+    
+    this.editProduct = this.productsService.editProduct;
+    
+    // Cambio de variable para saber si se está editando
+    if ( this.editProduct ) {
+      this.isEdit = true;
+    } else {
+      this.isEdit = false;
+    }
+    
+
+  }
+
+  ngOnDestroy(): void {
+    this.productsService.editProduct = null;
+    this.editProduct = null;
+    this.isEdit = false;
   }
 
   // Campos del formulario
@@ -47,7 +72,7 @@ export class AddProductsPage implements OnInit {
   });
 
 
-  // Añadir productos a la base de datos
+  // Añadir producto
   onAddProduct() {
 
     // Permite saber si el formulario es válido
@@ -70,6 +95,13 @@ export class AddProductsPage implements OnInit {
 
     // Toast para 
     this.presentToast( 'Producto agregado correctamente' );
+
+  }
+
+  // Editar producto 
+  onEditProduct() {
+
+    console.log( this.editProduct );
 
   }
 

@@ -53,7 +53,9 @@
       <ion-label>Proveedor</ion-label>
     </ion-item>  -->
 
-    <ion-button class="ion-margin-top" expand="block" (click)="onAddProduct()">Guardar</ion-button>
+    <ion-button *ngIf=" !isEdit " class="ion-margin-top" expand="block" (click)="onAddProduct()">Guardar</ion-button>
+
+    <ion-button *ngIf=" isEdit " class="ion-margin-top" expand="block" (click)="onEditProduct()">Actualizar</ion-button>
   </form>
 </ion-content>
 

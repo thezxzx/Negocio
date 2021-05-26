@@ -12,6 +12,8 @@ export class ProductsService {
   productosCollection: AngularFirestoreCollection;
   allproducts: Observable<Products[]>;
 
+  editProduct: Products;
+
   constructor(
     private af: AngularFirestore
   ) {
@@ -31,7 +33,6 @@ export class ProductsService {
 
   }
 
-
   async insertProduct( data: Products ): Promise<void> {
     try {
       console.log( data );
@@ -45,11 +46,20 @@ export class ProductsService {
 
     try {   
       return this.allproducts;
-      // return this.af.collection('productos').snapshotChanges();
     } catch (error) {
-      console.log( 'error linea 27 datos.service', error );     
+      console.log( 'Error linea 27 products.service', error );     
     }
 
+  }
+
+  async deleteProduct( id: string ) {
+    try {
+      
+      this.af.collection('Productos').doc( id ).delete();
+
+    } catch (error) {
+      console.log( 'Error línea 59 products.service', error );
+    }
   }
 
 }

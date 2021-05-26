@@ -1,5 +1,6 @@
 img {
     border-radius: 10px;
+    height: 300px;
     width: 100%;
 }
 
@@ -7,4 +8,24 @@ img {
     display: flex;
     justify-content: space-around;
     margin-bottom: 15px;
+}
+
+.menu-delete-update {
+    display: flex;
+    justify-content: flex-end;
+
+    ion-button {
+        --background: transparent;
+        --background-activated: transparent;
+        --border-style: none;
+        --box-shadow: none;
+        --color: #000000;
+        --color-activated: #000000;
+        --color-focused: #000000;
+        --color-hover: #000000;
+        --opacity: 1;
+        --ripple-color: #1e1e1e;
+        --transition: background-color 15ms linear;
+    }
+
 }
